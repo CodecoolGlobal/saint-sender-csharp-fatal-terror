@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using SaintSender.Core.Services;
+using SaintSender.DesktopUI.Views;
 
 namespace SaintSender.DesktopUI
 {
@@ -39,7 +40,7 @@ namespace SaintSender.DesktopUI
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -63,6 +64,14 @@ namespace SaintSender.DesktopUI
             gView.Columns[1].Width = workingWidth * col2;
             gView.Columns[2].Width = workingWidth * col3;
             gView.Columns[3].Width = workingWidth * col4;
+        }
+
+        private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Dispatcher.BeginInvoke(new Action(() => {
+                var emailContentWindow = new EmailContent();
+                emailContentWindow.Show();
+            }));
         }
     }
 }

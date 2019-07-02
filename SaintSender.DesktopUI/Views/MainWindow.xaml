@@ -68,7 +68,7 @@
                     <GridViewColumn Header="Read" />
                 </GridView>
             </ListView.View>
-            <ListViewItem>A ListView</ListViewItem>
+            <ListViewItem MouseDoubleClick="ListViewItem_MouseDoubleClick">A ListView</ListViewItem>
         </ListView>
     </Grid>
 </Controls:MetroWindow>
