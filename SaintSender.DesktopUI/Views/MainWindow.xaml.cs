@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using SaintSender.Core.Services;
 
 namespace SaintSender.DesktopUI
@@ -19,19 +20,49 @@ namespace SaintSender.DesktopUI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void GreetBtn_Click(object sender, RoutedEventArgs e)
+        private void ComposeBtn_Click(object sender, RoutedEventArgs e)
         {
-            var service = new GreetService();
-            var name = NameTxt.Text;
-            var greeting = service.Greet(name);
-            ResultTxt.Text = greeting;
+
+        }
+
+        private void LogoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ListView listView = sender as ListView;
+            GridView gView = listView.View as GridView;
+
+            Resize_ListView(listView, gView);
+        }
+
+        private void Resize_ListView(ListView listView, GridView gView)
+        {
+            double workingWidth = BigGrid.ActualWidth;
+                
+            var col1 = 0.50;
+            var col2 = 0.20;
+            var col3 = 0.15;
+            var col4 = 0.15;
+
+            gView.Columns[0].Width = workingWidth * col1;
+            gView.Columns[1].Width = workingWidth * col2;
+            gView.Columns[2].Width = workingWidth * col3;
+            gView.Columns[3].Width = workingWidth * col4;
         }
     }
 }
