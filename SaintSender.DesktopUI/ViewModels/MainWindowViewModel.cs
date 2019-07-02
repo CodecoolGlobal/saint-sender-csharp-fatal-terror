@@ -15,7 +15,8 @@ namespace SaintSender.DesktopUI
         public MainWindowViewModel(IMAPService iMAPServiceObject)
         {
             this.iMAPServiceObject = iMAPServiceObject;
-            emails = GetEmailsAsync().Result;
+            //emails = GetEmailsAsync().Result;
+            emails = Task.Run(() => GetEmailsAsync()).Result;
         }
 
         public ObservableCollection<EmailModel> Emails { get => emails; set => emails = value; }
