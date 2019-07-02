@@ -30,6 +30,7 @@ namespace SaintSender.DesktopUI.Views
             try
             {
                 loginViewModel.Sign_In(txtUsername.Text, txtPassword.Text);
+                this.Close();
             }
             catch (ArgumentException)
             {
