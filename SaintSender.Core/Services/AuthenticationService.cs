@@ -11,13 +11,11 @@ namespace SaintSender.Core.Services
     {
         private ImapClient _client;
 
-        public AuthenticationService()
-        {
-            this._client = new ImapClient();
-        }
 
         public void ConnectToIMAPService(string username, string password)
         {
+            this._client = new ImapClient();
+
             try
             {
                 _client.ServerCertificateValidationCallback = (s, c, h, e) => true;
@@ -32,7 +30,14 @@ namespace SaintSender.Core.Services
 
         public bool IsConnected()
         {
-            return _client.IsAuthenticated;
+            if (_client != null)
+            {
+                return _client.IsAuthenticated;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void DisconnectFromGmailService()
