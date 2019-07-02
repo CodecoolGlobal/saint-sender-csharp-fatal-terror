@@ -62,7 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenticationService.Tests.cs" />
+    <Compile Include="IMAPService.Tests.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

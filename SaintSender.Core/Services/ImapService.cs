@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SaintSender.Core.Services
 {
-    public class AuthenticationService
+    public class IMAPService
     {
         private ImapClient _client;
 
@@ -40,7 +40,7 @@ namespace SaintSender.Core.Services
             }
         }
 
-        public void DisconnectFromGmailService()
+        public void DisconnectFromIMAPService()
         {
             _client.Disconnect(true);
         }

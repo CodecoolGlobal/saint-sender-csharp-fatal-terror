@@ -9,7 +9,7 @@ namespace SaintSender.DesktopUI.ViewModels
 {
     public class LoginViewModel
     {
-        AuthenticationService authenticationService = new AuthenticationService();
+        IMAPService authenticationService = new IMAPService();
         public void Sign_In(string username, string password)
         {
             authenticationService.ConnectToIMAPService(username, password);
