@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using SaintSender.Core.Entities;
 using SaintSender.Core.Services;
 
 namespace SaintSender.DesktopUI
@@ -22,9 +23,12 @@ namespace SaintSender.DesktopUI
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public MainWindow()
+        private MainWindowViewModel mainWindowViewModel;
+        public MainWindow(IMAPService IMAPServiceObject)
         {
             InitializeComponent();
+            mainWindowViewModel = new MainWindowViewModel(IMAPServiceObject);
+            lstvEmails.ItemsSource = mainWindowViewModel.Emails;
         }
 
         private void ComposeBtn_Click(object sender, RoutedEventArgs e)
