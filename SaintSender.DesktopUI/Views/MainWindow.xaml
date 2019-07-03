@@ -8,7 +8,7 @@
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       Title="Saint Sender"
                       Height="450"
-                      Width="800">
+                      Width="800" BorderThickness="5">
     <Window.CommandBindings>
     </Window.CommandBindings>
     <Grid x:Name="BigGrid">

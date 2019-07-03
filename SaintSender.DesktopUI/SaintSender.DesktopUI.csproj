@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\EmailContentViewModel.cs" />
     <Compile Include="Views\EmailContent.xaml.cs">
       <DependentUpon>EmailContent.xaml</DependentUpon>
     </Compile>
