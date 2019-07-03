@@ -42,7 +42,7 @@ namespace SaintSender.Core.Services
                 for (int i = 0; i < inbox.Count; i++)
                 {
                     var message = await inbox.GetMessageAsync(i);
-                    emails.Add(new EmailModel(message.From.ToString(), message.Subject, message.Date.DateTime, false, message.GetTextBody(MimeKit.Text.TextFormat.RichText)));
+                    emails.Add(new EmailModel(message.From.ToString(), message.Subject, message.Date.DateTime,false, message.GetTextBody(MimeKit.Text.TextFormat.Plain)));
                 }
             }
 
