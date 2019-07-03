@@ -74,14 +74,6 @@ namespace SaintSender.DesktopUI
             gView.Columns[3].Width = workingWidth * col4;
         }
 
-        /*private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Dispatcher.BeginInvoke(new Action(() => {
-                var emailContentWindow = new EmailContent(sender);
-                emailContentWindow.Show();
-            }));
-        }*/
-
         private void listView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             // navigate to the list view item 

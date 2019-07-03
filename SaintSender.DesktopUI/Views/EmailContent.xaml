@@ -23,17 +23,19 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Margin="5">From:</Label>
         <TextBlock Grid.Column="1" Margin="5,5,20,5"
-                 Text="{Binding Subject}"></TextBlock>
+                 Text="{Binding Subject}" VerticalAlignment="Center"></TextBlock>
         <Label Grid.Row="1" Margin="5">Subject:</Label>
         <TextBlock Grid.Column="1"
                  Grid.Row="1"
                  Margin="5,5,20,5"
-                 Text="{Binding Sender}"></TextBlock>
+                   Text="{Binding Sender}"
+                   VerticalAlignment="Center"></TextBlock>
         <Label Grid.Row="2" Margin="5">Date:</Label>
         <TextBlock Grid.Column="1"
                  Grid.Row="2"
                  Margin="5,5,20,5"
-                 Text="{Binding Date}"></TextBlock>
+                   Text="{Binding Date}"
+                   VerticalAlignment="Center"></TextBlock>
         <TextBlock Grid.Row="3"
                  Margin="20,18.2,20.2,20"
                  Grid.ColumnSpan="2"
