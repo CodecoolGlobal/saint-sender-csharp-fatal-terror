@@ -29,5 +29,10 @@ namespace SaintSender.DesktopUI
             emailList = new ObservableCollection<EmailModel>(result);
             return emailList;
         }
+
+        public void Logout()
+        {
+            iMAPServiceObject.DeleteCredentials();
+        }
     }
 }
