@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using SaintSender.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,13 @@ namespace SaintSender.DesktopUI.Views
     /// </summary>
     public partial class EmailContent : MetroWindow
     {
-        public EmailContent()
+        private EmailModel _email;
+
+        public EmailContent(object email)
         {
             InitializeComponent();
+
+            this.DataContext = _email;
         }
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)

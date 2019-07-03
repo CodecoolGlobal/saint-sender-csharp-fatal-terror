@@ -54,8 +54,6 @@
                 Height="40"
                 BorderThickness="0"
                 Style="{StaticResource AccentedSquareButtonStyle}" />
-        <ListView VerticalAlignment="Top"
-                Height="27" />
         <ListView x:Name="lstvEmails"
                   VerticalAlignment="Top"
                   Height="100"
@@ -65,13 +63,15 @@
                   HorizontalAlignment="Left" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Subject" />
-                    <GridViewColumn Header="Sender" />
-                    <GridViewColumn Header="Date" />
-                    <GridViewColumn Header="Read" />
+                    <GridViewColumn Header="Subject" DisplayMemberBinding="{Binding Subject}" />
+                    <GridViewColumn Header="Sender"
+                                    DisplayMemberBinding="{Binding Sender}" />
+                    <GridViewColumn Header="Date"
+                                    DisplayMemberBinding="{Binding Date}" />
+                    <GridViewColumn Header="Read"
+                                    DisplayMemberBinding="{Binding Read}" />
                 </GridView>
             </ListView.View>
-            <ListViewItem MouseDoubleClick="ListViewItem_MouseDoubleClick">A ListView</ListViewItem>
         </ListView>
     </Grid>
 </Controls:MetroWindow>

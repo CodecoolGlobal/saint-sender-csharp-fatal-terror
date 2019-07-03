@@ -30,6 +30,7 @@ namespace SaintSender.DesktopUI
             InitializeComponent();
             mainWindowViewModel = new MainWindowViewModel(IMAPServiceObject);
             lstvEmails.ItemsSource = mainWindowViewModel.Emails;
+            lstvEmails.AddHandler(ListViewItem.MouseDoubleClickEvent, new MouseButtonEventHandler(ListViewItem_MouseDoubleClick));
         }
 
         private void ComposeBtn_Click(object sender, RoutedEventArgs e)
@@ -73,7 +74,7 @@ namespace SaintSender.DesktopUI
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Dispatcher.BeginInvoke(new Action(() => {
-                var emailContentWindow = new EmailContent();
+                var emailContentWindow = new EmailContent(sender);
                 emailContentWindow.Show();
             }));
         }
