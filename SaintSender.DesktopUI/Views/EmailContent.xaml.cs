@@ -23,10 +23,11 @@ namespace SaintSender.DesktopUI.Views
     {
         private EmailModel _email;
 
-        public EmailContent(object email)
+        public EmailContent(EmailModel email)
         {
             InitializeComponent();
 
+            _email = email;
             this.DataContext = _email;
         }
 

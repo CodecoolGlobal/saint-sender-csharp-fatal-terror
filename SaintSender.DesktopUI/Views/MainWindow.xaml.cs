@@ -30,7 +30,7 @@ namespace SaintSender.DesktopUI
             InitializeComponent();
             mainWindowViewModel = new MainWindowViewModel(IMAPServiceObject);
             lstvEmails.ItemsSource = mainWindowViewModel.Emails;
-            lstvEmails.AddHandler(ListViewItem.MouseDoubleClickEvent, new MouseButtonEventHandler(ListViewItem_MouseDoubleClick));
+            lstvEmails.AddHandler(ListViewItem.MouseDoubleClickEvent, new MouseButtonEventHandler(listView_MouseDoubleClick));
         }
 
         private void ComposeBtn_Click(object sender, RoutedEventArgs e)
@@ -74,10 +74,31 @@ namespace SaintSender.DesktopUI
             gView.Columns[3].Width = workingWidth * col4;
         }
 
-        private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        /*private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Dispatcher.BeginInvoke(new Action(() => {
                 var emailContentWindow = new EmailContent(sender);
+                emailContentWindow.Show();
+            }));
+        }*/
+
+        private void listView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // navigate to the list view item 
+            DependencyObject dep = (DependencyObject)e.OriginalSource;
+            while ((dep != null) && !(dep is ListViewItem))
+            {
+                dep = VisualTreeHelper.GetParent(dep);
+            }
+
+            if (dep == null)
+                return;
+
+            ListViewItem item = (ListViewItem)dep;
+            EmailModel myDataObject = (EmailModel)item.Content;
+
+            Dispatcher.BeginInvoke(new Action(() => {
+                var emailContentWindow = new EmailContent(myDataObject);
                 emailContentWindow.Show();
             }));
         }
