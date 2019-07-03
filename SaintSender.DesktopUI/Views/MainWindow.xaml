@@ -55,6 +55,9 @@
                 BorderThickness="0"
                 Style="{StaticResource AccentedSquareButtonStyle}" />
         <ListView VerticalAlignment="Top"
+                Height="27" />
+        <ListView x:Name="lstvEmails"
+                  VerticalAlignment="Top"
                   Height="100"
                   Grid.ColumnSpan="2"
                   Grid.Row="1"

@@ -11,25 +11,25 @@ namespace SaintSender.Core.Tests
     [TestFixture]
     public class AuthenticationServiceTests
     {
-        private AuthenticationService authenticationService;
+        private IMAPService IMAPServiceObject;
 
         [SetUp]
         public void Setup()
         {
-            authenticationService = new AuthenticationService();
+            IMAPServiceObject = new IMAPService();
         }
 
         [Test]
         public void ConnectToIMAPService_TestUser_ShouldConnect()
         {
-            authenticationService.ConnectToIMAPService("SaintSender.NET@Gmail.com", "SaintSender123");
-            Assert.IsTrue(authenticationService.IsConnected());
+            IMAPServiceObject.ConnectToIMAPService("SaintSender.NET@Gmail.com", "SaintSender123");
+            Assert.IsTrue(IMAPServiceObject.IsConnected());
         }
 
         [Test]
         public void ConnectToIMAPService_InvalidUser_ShouldThrowArgumentException()
         {
-            TestDelegate testDelegate = () => authenticationService.ConnectToIMAPService("", "");
+            TestDelegate testDelegate = () => IMAPServiceObject.ConnectToIMAPService("", "");
             Assert.Throws<ArgumentException>(testDelegate);
         }
     }
