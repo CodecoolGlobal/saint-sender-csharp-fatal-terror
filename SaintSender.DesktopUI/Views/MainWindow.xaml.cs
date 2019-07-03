@@ -35,7 +35,8 @@ namespace SaintSender.DesktopUI
 
         private void ComposeBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            ComposeView composeView = new ComposeView();
+            composeView.Show();
         }
 
         private void LogoutBtn_Click(object sender, RoutedEventArgs e)
