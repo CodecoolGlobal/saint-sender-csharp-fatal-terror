@@ -9,10 +9,12 @@ namespace SaintSender.DesktopUI.ViewModels
 {
     public class LoginViewModel
     {
-        IMAPService IMAPServiceObject = new IMAPService();
+        private IMAPService IMAPServiceObject = new IMAPService();
         public void Sign_In(string username, string password)
         {
+
             IMAPServiceObject.ConnectToIMAPService(username, password);
+            IMAPServiceObject.SaveCredentials(username,password);
             MainWindow mainWindow = new MainWindow(IMAPServiceObject);
             mainWindow.Show();
         }

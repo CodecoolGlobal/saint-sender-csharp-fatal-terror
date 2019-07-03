@@ -2,6 +2,7 @@
 using SaintSender.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,20 @@ namespace SaintSender.Core.Services
             }
 
             return emails;
+        }
+
+        public void SaveCredentials(string username,string password)
+        {
+            using(FileStream fileStream = new FileStream("login_cred.txt",FileMode.Create,FileAccess.Write))
+            using(StreamWriter streamWriter = new StreamWriter(fileStream))
+            {
+                streamWriter.WriteLine($"{username}/{password}");
+            }
+        }
+
+        public void DeleteCredentials()
+        {
+            File.Delete("login_cred.txt");
         }
 
         public bool IsConnected()

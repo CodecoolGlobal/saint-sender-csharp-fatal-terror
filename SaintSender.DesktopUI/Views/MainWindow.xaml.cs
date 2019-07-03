@@ -39,7 +39,10 @@ namespace SaintSender.DesktopUI
 
         private void LogoutBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            mainWindowViewModel.Logout();
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Close();
         }
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
