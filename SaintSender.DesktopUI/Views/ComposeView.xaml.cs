@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SaintSender.Core.Services;
+using SaintSender.DesktopUI.ViewModels;
 
 namespace SaintSender.DesktopUI.Views
 {
@@ -21,7 +23,6 @@ namespace SaintSender.DesktopUI.Views
     /// </summary>
     public partial class ComposeView : MetroWindow
     {
-        private EmailModel _email;
 
         public ComposeView()
         {
@@ -34,6 +35,9 @@ namespace SaintSender.DesktopUI.Views
         }
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
+            ComposeViewViewModel composeView = new ComposeViewViewModel();
+            composeView.ComposeMail(txtboxMessage.Text,txtboxAddress.Text,txtboxSubject.Text);
+
             Close();
         }
     }

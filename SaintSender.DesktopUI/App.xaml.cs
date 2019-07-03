@@ -58,7 +58,7 @@ namespace SaintSender.DesktopUI
             return IMAPServiceObject;
         }
 
-        private string[] GetSavedCredentials()
+        public string[] GetSavedCredentials()
         {
             if (File.Exists("login_cred.txt"))
             {
