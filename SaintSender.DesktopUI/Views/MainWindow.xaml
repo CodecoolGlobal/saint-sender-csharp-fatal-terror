@@ -59,7 +59,7 @@
                 Style="{StaticResource AccentedSquareButtonStyle}" />
         <ListView x:Name="lstvEmails"
                   VerticalAlignment="Top"
-                  Height="100"
+                  Height="auto"
                   Grid.ColumnSpan="2"
                   Grid.Row="1"
                   SizeChanged="ListView_SizeChanged"

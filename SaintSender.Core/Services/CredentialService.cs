@@ -13,13 +13,7 @@ namespace SaintSender.Core.Services
     {
         private AesCryptoServiceProvider myAes;
 
-        private AesCryptoServiceProvider CreateAesCryptoServiceProvider()
-        {
-            AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider();
-            aesCryptoServiceProvider.Key = Encoding.UTF8.GetBytes("WnZr4u7w!z%C*F-J");
-            aesCryptoServiceProvider.IV = Encoding.UTF8.GetBytes("*F-JaNdRgUkXp2s5");
-            return aesCryptoServiceProvider;
-        }
+       
 
         public CredentialService()
         {
@@ -62,6 +56,13 @@ namespace SaintSender.Core.Services
             {
                 writer.BaseStream.Write(encrypted, 0, encrypted.Length);
             }
+        }
+        private AesCryptoServiceProvider CreateAesCryptoServiceProvider()
+        {
+            AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider();
+            aesCryptoServiceProvider.Key = Encoding.UTF8.GetBytes("WnZr4u7w!z%C*F-J");
+            aesCryptoServiceProvider.IV = Encoding.UTF8.GetBytes("*F-JaNdRgUkXp2s5");
+            return aesCryptoServiceProvider;
         }
 
         private byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
