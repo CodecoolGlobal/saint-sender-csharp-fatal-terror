@@ -1,0 +1,59 @@
+﻿<Controls:MetroWindow x:Class="SaintSender.DesktopUI.Views.ComposeView"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:local="clr-namespace:SaintSender.DesktopUI.Views"
+                      mc:Ignorable="d"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="Content"
+                      Height="450"
+                      Width="501.315">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="200*"></RowDefinition>
+            <RowDefinition Height="80*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Margin="5">To:</Label>
+        <TextBox x:Name="txtboxAddress" Grid.Column="1" Margin="5,5,20,5"></TextBox>
+        <Label Grid.Row="1" Margin="5">Subject:</Label>
+        <TextBox x:Name="txtboxSubject" Grid.Column="1"
+                 Grid.Row="1"
+                 Margin="5,5,20,5"></TextBox>
+        <Label Grid.Row="2" Margin="5">Message:</Label>
+        <TextBox Grid.Row="3"
+                 Margin="20,18.2,20.2,20"
+                 Grid.ColumnSpan="2" x:Name="txtboxMessage"></TextBox>
+        <Button Name="btnExit"
+                Content="_Exit"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Width="100"
+                Margin="0,0,20.2,20"
+                Click="btnExit_Click"
+                Grid.Row="4"
+                Grid.Column="1"
+                Height="40"
+                BorderThickness="0"
+                Style="{StaticResource AccentedSquareButtonStyle}" />
+        <Button Name="btnSend"
+                Content="_Send"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Width="100"
+                Margin="0,0,20.2,20"
+                Click="btnSend_Click"
+                Grid.Row="4"
+                Grid.Column="1"
+                Height="40"
+                BorderThickness="0"
+                Style="{StaticResource AccentedSquareButtonStyle}" />
+    </Grid>
+</Controls:MetroWindow>
