@@ -8,7 +8,7 @@
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       Title="Saint Sender - Login"
                       Height="326.303"
-                      Width="650.711">
+                      Width="500">
 
     <DockPanel>
     <Grid DockPanel.Dock="Bottom">
@@ -21,23 +21,31 @@
         </Grid.RowDefinitions>
         <Button Grid.Column="0"
                 MinHeight="50"
-                    Click="Btn_Sign_in"
-                    Style="{StaticResource AccentedSquareButtonStyle}">Sign In</Button>
+                MaxWidth="200"
+                Margin="20"
+                Click="Btn_Sign_in"
+                Style="{StaticResource AccentedSquareButtonStyle}"
+                BorderThickness="0">Sign In</Button>
         <Button Grid.Column="1"
                 MinHeight="50"
-                    IsCancel="True"
-                    Style="{StaticResource AccentedSquareButtonStyle}">Cancel</Button>
+                MaxWidth="200"
+                Margin="20"
+                IsCancel="True"
+                Style="{StaticResource AccentedSquareButtonStyle}"
+                BorderThickness="0">Cancel</Button>
     </Grid>
     <StackPanel Margin="50,0"
                 MinHeight="35">
         <Label Margin="10">Username</Label>
         <TextBox Margin="0,10,10,10"
                  x:Name="txtUsername"
-                 MinHeight="35"></TextBox>
+                 MinHeight="35"
+                     MaxWidth="365"></TextBox>
         <Label Margin="10">Password</Label>
         <TextBox  Margin="0,10,10,10"
                   x:Name="txtPassword"
-                  MinHeight="35"></TextBox>
+                  MinHeight="35"
+                      MaxWidth="365"></TextBox>
     </StackPanel>
 </DockPanel>
 </Controls:MetroWindow>
