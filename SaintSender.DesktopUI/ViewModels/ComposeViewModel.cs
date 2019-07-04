@@ -3,7 +3,7 @@ using SaintSender.Core.Services;
 
 namespace SaintSender.DesktopUI.ViewModels
 {
-    public class ComposeViewViewModel
+    public class ComposeViewModel
     {
         public void ComposeMail(string content, string to, string subject)
         {

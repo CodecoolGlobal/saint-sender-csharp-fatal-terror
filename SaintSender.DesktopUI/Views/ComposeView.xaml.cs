@@ -35,7 +35,7 @@ namespace SaintSender.DesktopUI.Views
         }
         private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            ComposeViewViewModel composeView = new ComposeViewViewModel();
+            ComposeViewModel composeView = new ComposeViewModel();
             composeView.ComposeMail(txtboxMessage.Text,txtboxAddress.Text,txtboxSubject.Text);
 
             Close();

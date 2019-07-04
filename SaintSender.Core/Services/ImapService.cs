@@ -40,30 +40,37 @@ namespace SaintSender.Core.Services
                 var inbox = _client.Inbox;
                 inbox.Open(MailKit.FolderAccess.ReadOnly);
 
-                var items = inbox.Fetch(0, -1, MessageSummaryItems.UniqueId | MessageSummaryItems.Size | MessageSummaryItems.Flags);
+                var emailSummaries = inbox.Fetch(0, -1, MessageSummaryItems.UniqueId | MessageSummaryItems.Size | MessageSummaryItems.Flags);
 
-                foreach (var item in items)
+                foreach (var summary in emailSummaries)
                 {
-                    IList<IMessageSummary> info = inbox.Fetch(new[] { item.UniqueId }, MessageSummaryItems.Flags | MessageSummaryItems.GMailLabels);
+                    IList<IMessageSummary> info = inbox.Fetch(new[] { summary.UniqueId }, MessageSummaryItems.Flags | MessageSummaryItems.GMailLabels);
 
-                    string status;
+                    var email = await inbox.GetMessageAsync(summary.UniqueId);
 
-                    if (info[0].Flags.Value.HasFlag(MessageFlags.Seen))
-                    {
-                        status = "seen";
-                    }
-                    else
-                    {
-                        status = "unseen";
-                    }
-
-
-                    var message = await inbox.GetMessageAsync(item.UniqueId);
-                    emails.Add(new EmailModel(message.From.ToString(), message.Subject, message.Date.DateTime, status, message.GetTextBody(MimeKit.Text.TextFormat.Plain)));
+                    emails.Add(
+                        new EmailModel(
+                            email.From.ToString(), email.Subject, email.Date.DateTime,
+                            GetEmailStatus(info), email.GetTextBody(MimeKit.Text.TextFormat.Plain)));
                 }
             }
-
             return emails;
+        }
+
+        private string GetEmailStatus(IList<IMessageSummary> info)
+        {
+            string status;
+
+            if (info[0].Flags.Value.HasFlag(MessageFlags.Seen))
+            {
+                status = "seen";
+            }
+            else
+            {
+                status = "unseen";
+            }
+
+            return status;
         }
 
         public bool IsConnected()
