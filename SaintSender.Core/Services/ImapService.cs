@@ -1,4 +1,5 @@
-﻿using MailKit.Net.Imap;
+﻿using MailKit;
+using MailKit.Net.Imap;
 using SaintSender.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -39,10 +40,26 @@ namespace SaintSender.Core.Services
                 var inbox = _client.Inbox;
                 inbox.Open(MailKit.FolderAccess.ReadOnly);
 
-                for (int i = 0; i < inbox.Count; i++)
+                var items = inbox.Fetch(0, -1, MessageSummaryItems.UniqueId | MessageSummaryItems.Size | MessageSummaryItems.Flags);
+
+                foreach (var item in items)
                 {
-                    var message = await inbox.GetMessageAsync(i);
-                    emails.Add(new EmailModel(message.From.ToString(), message.Subject, message.Date.DateTime,false, message.GetTextBody(MimeKit.Text.TextFormat.Plain)));
+                    IList<IMessageSummary> info = inbox.Fetch(new[] { item.UniqueId }, MessageSummaryItems.Flags | MessageSummaryItems.GMailLabels);
+
+                    string status;
+
+                    if (info[0].Flags.Value.HasFlag(MessageFlags.Seen))
+                    {
+                        status = "seen";
+                    }
+                    else
+                    {
+                        status = "unseen";
+                    }
+
+
+                    var message = await inbox.GetMessageAsync(item.UniqueId);
+                    emails.Add(new EmailModel(message.From.ToString(), message.Subject, message.Date.DateTime, status, message.GetTextBody(MimeKit.Text.TextFormat.Plain)));
                 }
             }
 

@@ -66,9 +66,9 @@
                   HorizontalAlignment="Left" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Subject" DisplayMemberBinding="{Binding Subject}" />
-                    <GridViewColumn Header="Sender"
-                                    DisplayMemberBinding="{Binding Sender}" />
+                    <GridViewColumn Header="Sender" DisplayMemberBinding="{Binding Sender}" />
+                    <GridViewColumn Header="Subject"
+                                    DisplayMemberBinding="{Binding Subject}" />
                     <GridViewColumn Header="Date"
                                     DisplayMemberBinding="{Binding Date}" />
                     <GridViewColumn Header="Read"
