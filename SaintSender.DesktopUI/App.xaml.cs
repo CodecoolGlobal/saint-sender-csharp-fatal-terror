@@ -16,9 +16,10 @@ namespace SaintSender.DesktopUI
     /// </summary>
     public partial class App : Application
     {
+        private CredentialService CredentialServiceObject = new CredentialService();
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            string[] cred = GetSavedCredentials();
+            string[] cred = CredentialServiceObject.GetSavedCredentials();
             if (cred == null || cred.Length!=2)
             {
                 CreateLoginForm();
@@ -58,17 +59,6 @@ namespace SaintSender.DesktopUI
             return IMAPServiceObject;
         }
 
-        public string[] GetSavedCredentials()
-        {
-            if (File.Exists("login_cred.txt"))
-            {
-                using (StreamReader streamReader = new StreamReader("login_cred.txt"))
-                {
-                    string[] cred = streamReader.ReadLine().Split('/');
-                    return cred;
-                }
-            }
-            else { return null; }
-        }
+       
     }
 }

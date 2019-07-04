@@ -11,10 +11,11 @@ namespace SaintSender.Core.Services
 {
     public class SMTPService
     {
-
-        public static void SendEmail(MimeMessage message)
+        CredentialService CredentialServiceObject = new CredentialService();
+        public void SendEmail(MimeMessage message)
         {
-            string[] credentials = GetSavedCredentials();
+            string[] credentials = CredentialServiceObject.GetSavedCredentials();
+            message.From.Add(new MailboxAddress(credentials[0], credentials[0]));
             var client = new SmtpClient();
 
             client.Connect("smtp.gmail.com", 465, true);
@@ -23,18 +24,7 @@ namespace SaintSender.Core.Services
             client.Disconnect(true);
         }
 
-        public static string[] GetSavedCredentials()
-        {
-            if (File.Exists("login_cred.txt"))
-            {
-                using (StreamReader streamReader = new StreamReader("login_cred.txt"))
-                {
-                    string[] cred = streamReader.ReadLine().Split('/');
-                    return cred;
-                }
-            }
-            else { return null; }
-        }
+        
 
     }
 }
