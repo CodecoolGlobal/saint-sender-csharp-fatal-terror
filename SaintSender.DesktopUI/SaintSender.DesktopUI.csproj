@@ -72,6 +72,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\ComposeViewViewModel.cs" />
+    <Compile Include="ViewModels\EmailComparer.cs" />
     <Compile Include="Views\ComposeView.xaml.cs">
       <DependentUpon>ComposeView.xaml</DependentUpon>
     </Compile>
