@@ -3,15 +3,15 @@ using SaintSender.Core.Services;
 
 namespace SaintSender.DesktopUI.ViewModels
 {
-    class ComposeViewViewModel
+    public class ComposeViewViewModel
     {
         public void ComposeMail(string content, string to, string subject)
         {
             string footer = "Sent via Saint Sender";
-            string[] credentials = SMTPService.GetSavedCredentials();
+            
+            SMTPService SMTPServiceObject = new SMTPService();
 
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(credentials[0], credentials[0]));
             message.To.Add(new MailboxAddress(to, to));
             message.Subject = subject;
 
@@ -23,7 +23,7 @@ namespace SaintSender.DesktopUI.ViewModels
 
             message.Body = builder.ToMessageBody();
 
-            SMTPService.SendEmail(message);
+            SMTPServiceObject.SendEmail(message);
         }
     }
 }
