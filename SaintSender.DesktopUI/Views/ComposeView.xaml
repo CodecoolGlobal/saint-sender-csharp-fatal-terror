@@ -30,7 +30,11 @@
         <Label Grid.Row="2" Margin="5">Message:</Label>
         <TextBox Grid.Row="3"
                  Margin="20,18.2,20.2,20"
-                 Grid.ColumnSpan="2" x:Name="txtboxMessage"></TextBox>
+                 Grid.ColumnSpan="2"
+                 x:Name="txtboxMessage"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Visible"
+                 AcceptsReturn="True"></TextBox>
         <Button Name="btnExit"
                 Content="_Exit"
                 HorizontalAlignment="Right"
