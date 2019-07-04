@@ -7,7 +7,7 @@ namespace SaintSender.DesktopUI.ViewModels
     {
         public void ComposeMail(string content, string to, string subject)
         {
-            string footer = "Sent via Saint Sender";
+            string footer = "Sent via Saint Sender" + System.Environment.NewLine + "Isten fizesse meg!";
             
             SMTPService SMTPServiceObject = new SMTPService();
 

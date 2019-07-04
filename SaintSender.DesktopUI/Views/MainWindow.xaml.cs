@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using SaintSender.Core.Entities;
 using SaintSender.Core.Services;
@@ -64,10 +55,10 @@ namespace SaintSender.DesktopUI
         {
             double workingWidth = BigGrid.ActualWidth;
                 
-            var col1 = 0.50;
-            var col2 = 0.20;
-            var col3 = 0.15;
-            var col4 = 0.15;
+            var col1 = 0.35;
+            var col2 = 0.35;
+            var col3 = 0.20;
+            var col4 = 0.10;
 
             gView.Columns[0].Width = workingWidth * col1;
             gView.Columns[1].Width = workingWidth * col2;
