@@ -7,6 +7,7 @@ namespace SaintSender.DesktopUI.ViewModels
     {
         public void ComposeMail(string content, string to, string subject)
         {
+            string footer = "Sent via Saint Sender";
             string[] credentials = SMTPService.GetSavedCredentials();
 
             var message = new MimeMessage();
@@ -14,9 +15,11 @@ namespace SaintSender.DesktopUI.ViewModels
             message.To.Add(new MailboxAddress(to, to));
             message.Subject = subject;
 
+            var result = System.Environment.NewLine + content + System.Environment.NewLine + System.Environment.NewLine + footer;
+
             var builder = new BodyBuilder();
 
-            builder.TextBody = content;
+            builder.TextBody = result;
 
             message.Body = builder.ToMessageBody();
 
