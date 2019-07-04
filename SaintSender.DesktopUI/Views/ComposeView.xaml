@@ -8,7 +8,8 @@
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       Title="Saint Sender - Compose"
                       Height="450"
-                      Width="501.315">
+                      Width="501.315"
+                      Icon="https://i.pinimg.com/originals/18/96/19/18961987eb898847915782244559eddb.jpg">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"></ColumnDefinition>
