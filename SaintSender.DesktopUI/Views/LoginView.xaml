@@ -6,7 +6,7 @@
                       xmlns:local="clr-namespace:SaintSender.DesktopUI.Views"
                       mc:Ignorable="d"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      Title="MainWindow"
+                      Title="Saint Sender - Login"
                       Height="326.303"
                       Width="650.711">
 

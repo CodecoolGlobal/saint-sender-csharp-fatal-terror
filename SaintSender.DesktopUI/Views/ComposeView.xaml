@@ -6,7 +6,7 @@
                       xmlns:local="clr-namespace:SaintSender.DesktopUI.Views"
                       mc:Ignorable="d"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      Title="Content"
+                      Title="Saint Sender - Compose"
                       Height="450"
                       Width="501.315">
     <Grid>
